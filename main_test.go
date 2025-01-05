@@ -15,7 +15,7 @@ func assertInvariant(t testing.TB, got, want string) {
 func TestMain(t *testing.T) {
 	// name is supplied, greet people name
 	t.Run("Greets people by their name", func(t *testing.T) {
-		got := greet("Santa")
+		got := greet("Santa", "")
 		want := "Hello Santa"
 
 		assertInvariant(t, got, want)
@@ -24,9 +24,16 @@ func TestMain(t *testing.T) {
 	t.Run("ensures greeting fallsback to 'Hello, World' when name is not provided",
 		func(t *testing.T) {
 			// empty string
-			got := greet("")
+			got := greet("", "")
 			want := "Hello, World!"
 
 			assertInvariant(t, got, want)
 		})
+
+	t.Run("cannot greet user in 'alternate language'", func(t *testing.T) {
+		got := greet("Elodie", "Spanish")
+
+		want := "Hola Elodie"
+		assertInvariant(t, got, want)
+	})
 }

@@ -24,11 +24,23 @@ func main() {
 	learnArrays()
 }
 
-func greet(name string) string {
+func greet(name, language string) string {
 	const greetingPrefix = "Hello"
+	const frenchPrefix = "Bonjour"
+	const spanishPrefix = "Hola"
+	const spanish = "Spanish"
+	const french = "French"
+
 	if name == "" {
 		name = ", World!"
 		return greetingPrefix + name
+	}
+
+	if language == french {
+		return frenchPrefix + " " + name
+	}
+	if language == spanish {
+		return spanishPrefix + " " + name
 	}
 	return greetingPrefix + " " + name
 }
