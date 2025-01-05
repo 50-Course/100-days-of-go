@@ -36,4 +36,11 @@ func TestMain(t *testing.T) {
 		want := "Hola Elodie"
 		assertInvariant(t, got, want)
 	})
+
+	t.Run("can greet user in second language", func(t *testing.T) {
+		got := greet("Rotweller", "French")
+		want := "Bonjour Rotweller"
+
+		assertInvariant(t, got, want)
+	})
 }

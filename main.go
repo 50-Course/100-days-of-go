@@ -42,7 +42,7 @@ func greet(name, language string) string {
 	switch language {
 	case spanish:
 		prefix = spanishPrefix
-	case frenchPrefix:
+	case french:
 		prefix = frenchPrefix
 
 	}
