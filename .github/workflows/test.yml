@@ -16,9 +16,8 @@ jobs:
         go-version: 'stable'
     - name: Test with Go Test
       run: go test -v
-
     - name: Generate JaCoCo Badge
-      run: cicirello/jacoco-badge-generator@v2
+      uses: cicirello/jacoco-badge-generator@v2
       with:
         jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
         badges-directory: build/reports/jacoco/test/html/badges
