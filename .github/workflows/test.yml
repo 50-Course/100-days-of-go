@@ -1,0 +1,30 @@
+name: Run tests
+
+on:
+  push:
+  
+workflow_dispath:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Golang
+      uses: actions/setup-go@v5 
+      with:
+        go-version: 'stable'
+    - name: Test with Go Test
+      run: go test -v
+
+    - name: Generate JaCoCo Badge
+      run: cicirello/jacoco-badge-generator@v2
+      with:
+        jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
+        badges-directory: build/reports/jacoco/test/html/badges
+
+    - name: Publish coverage report to GH pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build/reports/jacoco/test/html
+    
