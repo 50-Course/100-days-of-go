@@ -25,7 +25,7 @@ func TestMain(t *testing.T) {
 		func(t *testing.T) {
 			// empty string
 			got := greet("", "")
-			want := "Hello, World!"
+			want := "Hello World!"
 
 			assertInvariant(t, got, want)
 		})

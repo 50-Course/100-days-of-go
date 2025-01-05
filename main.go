@@ -18,31 +18,35 @@ func main() {
 
 	fmt.Printf("Welcome %v! This is the %v 2025 special edition. \n", userName, conferenceName)
 	fmt.Println("This is going to be awesome. Welcome to my conference app")
-
 	fmt.Println(doSomething(1, 2))
 
 	learnArrays()
 }
 
+const (
+	englishPrefix = "Hello"
+	frenchPrefix  = "Bonjour"
+	spanishPrefix = "Hola"
+	french        = "French"
+	spanish       = "Spanish"
+)
+
 func greet(name, language string) string {
-	const greetingPrefix = "Hello"
-	const frenchPrefix = "Bonjour"
-	const spanishPrefix = "Hola"
-	const spanish = "Spanish"
-	const french = "French"
-
 	if name == "" {
-		name = ", World!"
-		return greetingPrefix + name
+		name = "World!"
 	}
 
-	if language == french {
-		return frenchPrefix + " " + name
+	// defaults to english
+	prefix := englishPrefix
+
+	switch language {
+	case spanish:
+		prefix = spanishPrefix
+	case frenchPrefix:
+		prefix = frenchPrefix
+
 	}
-	if language == spanish {
-		return spanishPrefix + " " + name
-	}
-	return greetingPrefix + " " + name
+	return prefix + " " + name
 }
 
 /*
