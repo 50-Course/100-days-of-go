@@ -12,6 +12,22 @@ func assertInvariant(t testing.TB, got, want string) {
 	}
 }
 
+func TestGreetingPrefix(t *testing.T) {
+	// testing we can work with different prefixes
+	t.Run("Given a language, generates a prefix", func(t *testing.T) {
+		got := greetingPrefix("Spanish")
+		want := "Hola"
+		assertInvariant(t, got, want)
+	})
+
+	t.Run("Given an invalid lanugage, returns a empty  value", func(t *testing.T) {
+		got := greetingPrefix("Yoruba")
+		want := "Hello"
+
+		assertInvariant(t, got, want)
+	})
+}
+
 func TestMain(t *testing.T) {
 	// name is supplied, greet people name
 	t.Run("Greets people by their name", func(t *testing.T) {
