@@ -31,22 +31,24 @@ const (
 	spanish       = "Spanish"
 )
 
-func greet(name, language string) string {
-	if name == "" {
-		name = "World!"
-	}
-
+func greetingPrefix(language string) (prefix string) {
 	// defaults to english
-	prefix := englishPrefix
-
 	switch language {
 	case spanish:
 		prefix = spanishPrefix
 	case french:
 		prefix = frenchPrefix
-
+	default:
+		prefix = englishPrefix
 	}
-	return prefix + " " + name
+	return
+}
+
+func Hello(name, language string) string {
+	if name == "" {
+		name = "World!"
+	}
+	return greetingPrefix(language) + " " + name
 }
 
 /*
