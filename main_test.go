@@ -16,7 +16,7 @@ func TestMain(t *testing.T) {
 	// name is supplied, greet people name
 	t.Run("Greets people by their name", func(t *testing.T) {
 		got := greet("Santa")
-		want := "Hello, Santa"
+		want := "Hello Santa"
 
 		assertInvariant(t, got, want)
 	})
