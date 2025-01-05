@@ -2,9 +2,9 @@ name: Run tests
 
 on:
   push:
-  
-workflow_dispath:
 
+  workflow_dispatch:
+  
 jobs:
   build:
     runs-on: ubuntu-latest
