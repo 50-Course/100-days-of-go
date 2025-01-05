@@ -16,12 +16,14 @@ jobs:
       with:
         go-version: 'stable'
 
-    - name: Test with Go Test
-      run: go test -v
+    - name: Run tests
+      run: go test -v -coverprofile=coverage.out
 
     - name: Generate JaCoCo Badge
       id: jacoco
       uses: cicirello/jacoco-badge-generator@v2
+      with:
+        coverage-file: coverage.out
 
     - name: Log coverage report percentage
       run: |
