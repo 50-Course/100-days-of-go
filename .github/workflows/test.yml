@@ -21,7 +21,7 @@ jobs:
         go-version: 'stable'
 
     - name: Run tests
-      run: go test -v -coverprofile=coverage.out
+      run: go test -v -coverprofile=coverage.out ./...
 
     - name: Calculate coverage
       id: coverage
