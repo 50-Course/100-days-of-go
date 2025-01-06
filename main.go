@@ -31,6 +31,7 @@ const (
 	spanish       = "Spanish"
 )
 
+// this is a private function that shouldn't be exposed
 func greetingPrefix(language string) (prefix string) {
 	// defaults to english
 	switch language {
