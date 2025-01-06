@@ -16,7 +16,7 @@ func TestRepeat(t *testing.T) {
 	t.Run("given a value, repeat it five times", func(t *testing.T) {
 		// setup the test data
 
-		repeated := Repeat("a")
+		repeated := Repeat("a", 5)
 		want := "aaaaa"
 
 		assertEqual(t, repeated, want)
@@ -31,7 +31,8 @@ func TestRepeat(t *testing.T) {
 }
 
 func BenchmarkRepeat(b *testing.B) {
+	repeatCount := b.N
 	for i := 0; i < b.N; i++ {
-		Repeat("a")
+		Repeat("a", repeatCount)
 	}
 }
