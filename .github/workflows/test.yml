@@ -32,15 +32,7 @@ jobs:
         
     - name: Generate coverage badge (ImgShields)
       run: |
-          curl -o coverage-badge.svg "https://img.shields.io/badge/coverage-${{ steps.coverage.outputs.coverage }}%-brightgreen"
-
-    # - name: Generate JaCoCo Badge
-    #   id: jacoco
-    #   uses: cicirello/jacoco-badge-generator@v2
-    #
-    # - name: Log coverage report percentage
-    #   run: |
-    #       echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          curl -o coverage-badge.svg "https://img.shields.io/badge/coverage-${{ steps.coverage.outputs.coverage }}%25-brightgreen"
 
     - name: Commit the badge (if it has changed)
       run: |
@@ -51,14 +43,3 @@ jobs:
           git commit -m 'chore: update coverage badge'
           git push
         fi
-
-    # - name: Upload jacoco report
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: jacoco-report
-    #     path: target/site/jacoco/
-    #
-    # - name: Publish coverage report to GH pages
-    #   uses: JamesIves/github-pages-deploy-action@v4
-    #   with:
-    #     folder: build/reports/jacoco/test/html
