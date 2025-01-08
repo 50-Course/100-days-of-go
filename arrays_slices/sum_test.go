@@ -22,8 +22,12 @@ func TestSum(t *testing.T) {
 	got := Sum(nums)
 	want := 15
 
-	t.Run("Array of of 5 integers results in the expected value")
-	t.Run("Array of values greater than capacity of five results in an error")
-	t.Run("Arrays of a combination of postive and negative integers results in an expected value")
-	t.Run("Array of all negative values added together results in a negative value")
+	t.Run("Array of of 5 integers results in the expected value", func(t *testing.T) {
+	})
+	t.Run("Array of values greater than capacity of five results in an error", func(t *testing.T) {
+	})
+	t.Run("Arrays of a combination of postive and negative integers results in an expected value", func(t *testing.T) {
+	})
+	t.Run("Array of all negative values added together results in a negative value", func(t *testing.T) {
+	})
 }
