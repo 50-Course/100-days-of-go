@@ -19,21 +19,16 @@ func assertEqual(t testing.TB, got, want int) {
 }
 
 func TestSum(t *testing.T) {
-	t.Run("Array of of 5 integers results in the expected value", func(t *testing.T) {
-		nums := [5]int{1, 2, 3, 4, 5}
+	t.Run("collection of of 5 integers results in the expected value", func(t *testing.T) {
+		nums := []int{1, 2, 3, 4, 5}
 
 		got := Sum(nums)
 		want := 15
 		assertEqual(t, got, want)
 	})
-	// t.Run("Array of values greater than capacity of five results in an error", func(t *testing.T) {
-	// 	numsArrGreaterThanSizeFive := [...]int{1, 2, 3, 4, 5, 6}
-	//
-	// 	got := Sum(numsArrGreaterThanSizeFive)
-	// 	want := assertEqual(t, got, want)
-	// })
-	t.Run("Arrays of a combination of postive and negative integers results in an expected value", func(t *testing.T) {
-		numsCombo := [...]int{1, -2, 3, -4, -5}
+
+	t.Run("a collection of a combination of postive and negative integers results in an expected value", func(t *testing.T) {
+		numsCombo := []int{1, -2, 3, -4, -5}
 
 		got := Sum(numsCombo)
 		// expected = -7
@@ -41,18 +36,12 @@ func TestSum(t *testing.T) {
 
 		assertEqual(t, got, want)
 	})
-	t.Run("Array of all negative values added together results in a negative value", func(t *testing.T) {
-		var negativeNums [5]int
 
-		negativeNums[0] = -1
-		negativeNums[0] = -2
-		negativeNums[0] = -3
-		negativeNums[0] = -4
-		negativeNums[0] = -5
+	t.Run("A collection of any number of integers results in the expected value", func(t *testing.T) {
+		nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-		got := Sum(negativeNums)
-		// expected = -15
-		want := -15
+		got := Sum(nums)
+		want := 55
 		assertEqual(t, got, want)
 	})
 }

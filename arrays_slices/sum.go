@@ -5,11 +5,8 @@ import (
 	_ "fmt"
 )
 
-func Sum(arr [5]int) int {
+func Sum(arr []int) int {
 	count := 0
-
-	if len(arr) > 5 {
-	}
 
 	for _, n := range arr {
 		count += n
