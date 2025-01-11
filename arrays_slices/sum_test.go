@@ -1,6 +1,8 @@
 package arrays_slices
 
 import (
+	_ "reflect"
+	"slices"
 	"testing"
 )
 
@@ -43,5 +45,23 @@ func TestSum(t *testing.T) {
 		got := Sum(nums)
 		want := 55
 		assertEqual(t, got, want)
+	})
+}
+
+func TestSumAll(t *testing.T) {
+	got := SumAll([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+
+	if !slices.Equal(got, want) {
+		t.Errorf("expected %v but received %v", want, got)
+	}
+
+	t.Run("zero variadic numbers of slices passed in will results in an empty slice", func(t *testing.T) {
+		got := SumAll()
+		want := []int{}
+
+		if !slices.Equal(got, want) {
+			t.Errorf("expected %v but received %v", want, got)
+		}
 	})
 }

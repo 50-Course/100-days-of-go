@@ -13,3 +13,16 @@ func Sum(arr []int) int {
 	}
 	return count
 }
+
+func SumAll(numsToSum ...[]int) []int {
+	if numsToSum == nil {
+		return []int{}
+	}
+
+	var sums []int
+
+	for _, num := range numsToSum {
+		sums = append(sums, Sum(num))
+	}
+	return sums
+}
