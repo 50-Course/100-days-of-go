@@ -1,7 +1,7 @@
 package arrays_slices
 
 import (
-	_ "reflect"
+	"reflect"
 	"slices"
 	"testing"
 )
@@ -64,4 +64,13 @@ func TestSumAll(t *testing.T) {
 			t.Errorf("expected %v but received %v", want, got)
 		}
 	})
+}
+
+func TestSumAllTails(t *testing.T) {
+	got := SumAll([]int{1, 2}, []int{0, 9})
+	want := []int{2, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("expected %v but received %v", want, got)
+	}
 }

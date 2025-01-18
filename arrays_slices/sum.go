@@ -26,3 +26,19 @@ func SumAll(numsToSum ...[]int) []int {
 	}
 	return sums
 }
+
+func SumAllTails(numsToSum ...[]int) []int {
+	if numsToSum == nil {
+		return []int{}
+	}
+
+	var sums []int
+
+	// tails are slices or arrays beginning from the second element to the end
+	// of the slice or array
+	for _, nums := range numsToSum {
+		tail := nums[1:]
+		sums = append(sums, Sum(tail))
+	}
+	return sums
+}
